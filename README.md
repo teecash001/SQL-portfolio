@@ -31,9 +31,7 @@
 
 ## Data Understanding:
 Firstly I had to create a table in PostgreSQL called campaigndata to house my data and define the data types for the columns.
-```sql
-
-```
+[create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/Create%20table.PNG)
 
 
 Then I imported the data in SQL.
