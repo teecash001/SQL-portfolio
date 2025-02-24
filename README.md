@@ -73,8 +73,15 @@ o	Reflects the return generated from the investment in a campaign. Analyzing ROI
 
 
 ## Analysis &  Query Writing 
-The following are questions that will guide my analysis and how I use SQL to extract insights from my data:
-1.	Calculate Total Impressions for Each Campaign
+###### The following are questions that will guide my analysis and how I use SQL to extract insights from my data:
+##### 1.	Calculate Total Impressions for Each Campaign
+
+```sql
+SELECT campaign_id, SUM(impressions) AS totalimpressions
+FROM campaigndata
+GROUP BY campaign_id
+ORDER BY totalimpressions DESC; 
+```
  
 There were 200,005 campaigns that were run in the data, that’s a lot of campaigns and 10,000 impressions was the highest impressions gotten.
 
