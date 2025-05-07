@@ -187,27 +187,43 @@ HAVING (SUM(clicks) * 100.0) / SUM(impressions) > 5
 ORDER BY ctr DESC;
 ```
 
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/7%20output.png)
+
  
-Campiagn with id 123375 had the highest click through rate at 99.2%. The top 10 campaigns shown have extremely high CTRs, ranging from 99.2% down to 96.9%. This suggests that these campaigns were very effective at getting people to click. 
-TechCorp appear 2 times and Alpha Innovations appear 3 times in the top 10, indicating they are running highly effective campaigns that generate high click-through rates.
+#### Campiagn with id 123375 had the highest click through rate at 99.2%. The top 10 campaigns shown have extremely high CTRs, ranging from 99.2% down to 96.9%. This suggests that these #### campaigns were very effective at getting people to click. 
+#### TechCorp appear 2 times and Alpha Innovations appear 3 times in the top 10, indicating they are running highly effective campaigns that generate high click-through rates.
 
 
-8.	Rank Channels by Total Conversions
+
+
+
+##### 8.	Rank Channels by Total Conversions
+
+```sql
+SELECT
+    channel_used,
+    SUM(clicks * conversion_rate) AS totalconversions
+FROM campaigndata
+GROUP BY channel_used
+ORDER BY totalconversions DESC;
+```
+
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/8%20output.png)
  
-Email has the highest number of total conversions (1,485,393.65) and is ranked 1st. 
-Website and Google Ads have very similar total conversions and are ranked 2nd and 3rd, respectively. 
-YouTube and Instagram also have close total conversion numbers and are ranked 4th and 5th. 
-Facebook has the lowest number of conversions among the displayed channels and is ranked 6th.
-Email, Website, and Google Ads are the most effective channels for driving conversions.
+#### Email has the highest number of total conversions (1,485,393.65) and is ranked 1st. 
+#### Website and Google Ads have very similar total conversions and are ranked 2nd and 3rd, respectively. 
+#### YouTube and Instagram also have close total conversion numbers and are ranked 4th and 5th. 
+#### Facebook has the lowest number of conversions among the displayed channels and is ranked 6th.
+#### Email, Website, and Google Ads are the most effective channels for driving conversions.
 
 
 
 ## Conclusion
-The analysis of the 200,005 campaigns provides valuable insights into the effectiveness of various digital marketing efforts. Key findings indicate that NextGen Systems achieved the highest Return on Investment (ROI) at 800%, demonstrating strong revenue generation. In terms of reach, New York, Miami, and Chicago led in impressions, with over 219 million impressions each.
-Engagement trends revealed that men aged 18-24 had the highest interaction with ads, closely followed by women aged 25-34. Overall, the audience engagement scores were consistently high across all age groups. The overall Click-Through Rate (CTR) stood at 9.98%, significantly exceeding industry averages, highlighting strong user interest in the ads.
-Cost-effectiveness analysis identified Alpha Innovations as the top performer, with a cost per conversion of $34.22. Additionally, TechCorp and Alpha Innovations ran some of the highest CTR campaigns, exceeding 96.9%, proving their ability to drive clicks effectively.
-Finally, Email emerged as the top channel for conversions, followed by Website and Google Ads, emphasizing the importance of direct marketing and search-driven strategies. Facebook, while ranking lowest in conversions, still played a role in the overall digital marketing mix.
-These insights offer a strategic direction for optimizing future campaigns by prioritizing high-performing channels, refining audience targeting, and leveraging cost-efficient strategies to maximize ROI and engagement.
+##### The analysis of the 200,005 campaigns provides valuable insights into the effectiveness of various digital marketing efforts. Key findings indicate that NextGen Systems achieved the highest Return on Investment (ROI) at 800%, demonstrating strong revenue generation. In terms of reach, New York, Miami, and Chicago led in impressions, with over 219 million impressions each.
+##### Engagement trends revealed that men aged 18-24 had the highest interaction with ads, closely followed by women aged 25-34. Overall, the audience engagement scores were consistently high across all age groups. The overall Click-Through Rate (CTR) stood at 9.98%, significantly exceeding industry averages, highlighting strong user interest in the ads.
+##### Cost-effectiveness analysis identified Alpha Innovations as the top performer, with a cost per conversion of $34.22. Additionally, TechCorp and Alpha Innovations ran some of the highest CTR campaigns, exceeding 96.9%, proving their ability to drive clicks effectively.
+##### Finally, Email emerged as the top channel for conversions, followed by Website and Google Ads, emphasizing the importance of direct marketing and search-driven strategies. Facebook, while ranking lowest in conversions, still played a role in the overall digital marketing mix.
+##### These insights offer a strategic direction for optimizing future campaigns by prioritizing high-performing channels, refining audience targeting, and leveraging cost-efficient strategies to maximize ROI and engagement.
 
 
 
