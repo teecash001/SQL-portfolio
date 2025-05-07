@@ -132,28 +132,61 @@ GROUP BY target_audience
 ORDER BY avgengagementscore DESC
 ```
 
-![create table](
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/4%20output22.png)
  
-On average, Men between 18-24 have the highest average engagement score (5.5150), meaning they interact the most with the marketing campaigns.
- Women between 25-34 come next with an engagement score of 5.4927, closely followed by Men 25-34 at 5.4918.
-All other ages group have an engagement score of 5.4868, suggesting that the overall audience has a relatively high interaction rate.
-Women between 35-44 have the lowest engagement score among the top five, at 5.4865, but the difference between groups is minimal
+#### On average, Men between 18-24 have the highest average engagement score (5.5150), meaning they interact the most with the marketing campaigns.
+#### Women between 25-34 come next with an engagement score of 5.4927, closely followed by Men 25-34 at 5.4918.
+#### All other ages group have an engagement score of 5.4868, suggesting that the overall audience has a relatively high interaction rate.
+#### Women between 35-44 have the lowest engagement score among the top five, at 5.4865, but the difference between groups is minimal
 
 
 
-5.	Calculate the Overall CTR (Click-Through Rate)
+
+##### 5.	Calculate the Overall CTR (Click-Through Rate)
+
+```sql
+SELECT (SUM(clicks) * 100.0) / SUM(impressions) AS overallctr
+FROM campaigndata;
+```
+
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/5%20output22.png)
  
-This indicates that for every 100 impressions, roughly 9.98 users clicked on the ad. This is a solid Click Through Rate, suggesting that the ads are relatively effective at driving user interaction compared to the industry average, where CTRs tend to hover around 2-3% for most digital platforms.
+#### This indicates that for every 100 impressions, roughly 9.98 users clicked on the ad. This is a solid Click Through Rate, suggesting that the ads are relatively effective at driving user interaction compared to the industry average, where CTRs tend to hover around 2-3% for most digital platforms.
 
 
-6.	Find the Most Cost-Effective Campaign
+
+
+##### 6.	Find the Most Cost-Effective Campaign
+
+```sql
+SELECT campaign_id, company, 
+    (CAST(REPLACE(REPLACE(acquisition_cost::TEXT, '$', ''), ',', '') AS NUMERIC) / (conversion_rate * clicks)) AS costperconversion
+FROM campaigndata
+ORDER BY costperconversion ASC;
+```
+
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/6%20output.png)
  
-Campaign with id 118451 from Alpha Innovations has the lowest cost per conversion at $34.22 which makes it thee most cost effective campaign.
-This means that for every successful conversion, Alpha Innovations spent approximately $34.22, making it the most efficient campaign.
-Alpha Innovations has three campaigns in the top six most cost-effective campaigns, 3 of the campaigns they ran were among the most cost effective. 
+#### Campaign with id 118451 from Alpha Innovations has the lowest cost per conversion at $34.22 which makes it thee most cost effective campaign.
+#### This means that for every successful conversion, Alpha Innovations spent approximately $34.22, making it the most efficient campaign.
+#### Alpha Innovations has three campaigns in the top six most cost-effective campaigns, 3 of the campaigns they ran were among the most cost effective. 
 
 
-7.	Find Campaigns with CTR Above a Threshold
+
+
+##### 7.	Find Campaigns with CTR Above a Threshold
+
+```sql
+SELECT 
+    campaign_id, 
+    company, 
+    (SUM(clicks) * 100.0) / SUM(impressions) AS ctr
+FROM campaigndata
+GROUP BY campaign_id, company
+HAVING (SUM(clicks) * 100.0) / SUM(impressions) > 5
+ORDER BY ctr DESC;
+```
+
  
 Campiagn with id 123375 had the highest click through rate at 99.2%. The top 10 campaigns shown have extremely high CTRs, ranging from 99.2% down to 96.9%. This suggests that these campaigns were very effective at getting people to click. 
 TechCorp appear 2 times and Alpha Innovations appear 3 times in the top 10, indicating they are running highly effective campaigns that generate high click-through rates.
