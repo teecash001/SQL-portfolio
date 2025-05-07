@@ -82,6 +82,8 @@ FROM campaigndata
 GROUP BY campaign_id
 ORDER BY totalimpressions DESC; 
 ```
+
+!(https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/1%20output.png)
  
 ##### There were 200,005 campaigns that were run in the data, that’s a lot of campaigns and 10,000 impressions was the highest impressions gotten.
 
