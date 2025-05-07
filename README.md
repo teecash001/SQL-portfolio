@@ -98,7 +98,11 @@ FROM campaigndata
 ORDER BY ROI DESC
 LIMIT 1;
 ```
+
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/2.png)
+
 ##### Campaign with the Id 168 had the highest ROI(Return on Investment) at 800% and the company that ran that campaign is NextGen Systems. This means that for every $1 spent, the campaign generated $8 in return.
+
 
 
 
@@ -111,6 +115,8 @@ GROUP BY Location
 ORDER BY totalimpressions DESC
 LIMIT 3;
 ```
+
+![create table](https://github.com/teecash001/SQL-portfolio/blob/main/assets/images/3%20output.png)
  
 New York is the location with the highest Impressions at 221.35 million impressions followed by Miami with 221.34 million impressions and Chicago is the least of the top 3 locations with 219 million impressions.
 
